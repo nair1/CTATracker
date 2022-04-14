@@ -21,7 +21,14 @@ def get_url(route_color):
     return url
 
 def get_train_info(response):
-    return response.json()['ctatt']['route'][0]['train']
+    route_info = response.json()['ctatt']['route'][0]
+
+    if 'train' not in route_info:
+        return None
+    elif not isinstance(route_info['train'], list):
+        return [route_info['train']]
+
+    return route_info['train']
 
 def print_all_train_info(route_color):
     url = get_url(route_color[0])
