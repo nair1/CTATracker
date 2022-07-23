@@ -1,6 +1,5 @@
 from re import L
 
-
 class RequestInfo():
     API_KEY = 'ae58d07673eb4bf4ae59f9c0a288c470'
 

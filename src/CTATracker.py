@@ -1,11 +1,8 @@
-from xmlrpc.client import ResponseError
 from Constants import *
 
 import requests
-import json
 
 from datetime import datetime
-from datetime import timedelta
 
 def main():
     for route in Lines.ALL:
@@ -35,7 +32,7 @@ def print_all_train_info(route_color):
     response = requests.get(url)
 
     if not response.ok:
-        raise ResponseError('Error: response did not resolve okay!')
+        raise ConnectionError('Error: response did not resolve okay!')
 
     train_info = get_train_info(response)
     
